@@ -24,7 +24,7 @@ namespace Gifter.Repositories
 
         public UserProfile GetById(int id)
         {
-            return _context.UserProfile.FirstOrDefault(p => p.Id == id);
+            return _context.UserProfile.FirstOrDefault(u => u.Id == id);
         }
 
 
