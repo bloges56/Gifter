@@ -42,7 +42,11 @@ namespace Gifter.Repositories
 
         public void Delete(int id)
         {
-            var user = GetById(id);
+            var user = _context.UserProfile
+                .Include(u => u.Comments)
+                .Include(u => u.Posts)
+                .FirstOrDefault(u => u.Id == id);
+
             _context.UserProfile.Remove(user);
             _context.SaveChanges();
         }
