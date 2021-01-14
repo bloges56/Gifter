@@ -2,7 +2,6 @@ import React from "react";
 import { ListGroup, ListGroupItem } from 'reactstrap';
 
 const CommentList = ({ comments }) => {
-    debugger;
     return (
         <ListGroup>
             {comments.map(comment => (
