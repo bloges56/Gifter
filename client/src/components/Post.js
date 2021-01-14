@@ -1,5 +1,6 @@
 import React from "react";
 import { Card, CardImg, CardBody } from "reactstrap";
+import CommentList from "./CommentList"
 
 const Post = ({ post }) => {
   return (
@@ -12,6 +13,7 @@ const Post = ({ post }) => {
         </p>
         <p>{post.caption}</p>
       </CardBody>
+      <CommentList comments={post.comments}/>
     </Card>
   );
 };
