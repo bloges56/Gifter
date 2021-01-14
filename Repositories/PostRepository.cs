@@ -36,9 +36,11 @@ namespace Gifter.Repositories
         public List<Post> GetByUserProfileId(int id)
         {
             return _context.Post.Include(p => p.UserProfile)
-                            .Where(p => p.UserProfileId == id)
-                            .OrderBy(p => p.Title)
-                            .ToList();
+                .Include(p => p.Comments)
+                .ThenInclude(c => c.UserProfile)
+                .Where(p => p.UserProfileId == id)
+                .OrderBy(p => p.Title)
+                .ToList();
         }
 
         public void Add(Post post)

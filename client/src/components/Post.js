@@ -6,7 +6,7 @@ import CommentList from "./CommentList";
 const Post = ({ post }) => {
   return (
     <Card className="m-4">
-      <p className="text-left px-2">Posted by: {post.userProfile.name}</p>
+      <p className="text-left px-2">Posted by: <Link to={`/users/${post.userProfile.id}`}>{post.userProfile.name}</Link></p>
       <CardImg top src={post.imageUrl} alt={post.title} />
       <CardBody>
         <Link to={`/posts/${post.id}`}>
