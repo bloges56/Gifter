@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { useHistory } from "react-router-dom";
 import { Form, FormGroup, Input, Label, Button, Container, Row, Col } from "reactstrap"
 
 const PostForm = () => {
@@ -15,6 +16,7 @@ const PostForm = () => {
         newPost[event.target.name] = event.target.value
         setPost(newPost)
     }
+    const history = useHistory();
 
     const constructPost = () => {
         fetch("api/post", {
@@ -23,6 +25,9 @@ const PostForm = () => {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(post)
+        })
+        .then(p => {
+            history.push("/")
         })
     }
 
